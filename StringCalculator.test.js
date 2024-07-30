@@ -59,3 +59,11 @@ test('multiple delimiters of varying length will return correct sum',()=>{
     expect(calculator.add('//[**][%%]\n1**2%%3)')).toBe(6);
 });
 
+test('subtraction of two numbers will give correct value',()=>{
+    expect(calculator.subtract('5,3')).toBe(2);
+});
+
+test('subtraction resulting in negative answer throws error',()=>{
+    expect(()=>calculator.subtract('3,5')).toThrow('Result cannot be negative');
+});
+

@@ -6,7 +6,13 @@ class StringCalculator{
     }
     subtract(numbers)
     {
-        return this.calculate(numbers,(a,b)=>a-b);
+        return this.calculate(numbers,(a,b)=>{
+            const result = a-b;
+            if(result<0){
+                throw new Error('Result cannot be negative');
+            }
+            return result;
+        });
     }
     multiply(numbers)
     {
@@ -16,7 +22,7 @@ class StringCalculator{
     {
         return this.calculate(numbers,(a,b)=>{
             if(b==0) 
-                throw new Error("Division by zero");
+                throw new Error("Division by zero exception");
             return a/b;
         });
     }

@@ -24,7 +24,8 @@ class StringCalculator{
                 parseNumbers(numbers, delimiter)
                 {
                     return numbers.split(delimiter).filter(val=>val.trim() !== '')
-                    .map(val=>parseInt(val.trim(),10));
+                    .map(val=>parseInt(val.trim(),10))
+                    .filter(val=>val<=1000);
                 }
 
                 checkNegative(numbers)

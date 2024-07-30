@@ -39,3 +39,10 @@ test('custom delimiter as ; will return correct sum',()=>{
 test('negative numbers as input will throw exception',()=>{
     expect(()=>{calculator.add('1,-2,-3');}).toThrow('Negative numbers are not allowed: -2, -3');
 });
+
+test('numbers greater than 1000 will be ignored',()=>{
+    expect(calculator.add('2000,4,8')).toBe(12);
+});
+test('numbers greater than 1000 will be ignored',()=>{
+    expect(calculator.add('2000,2000')).toBe(0);
+});

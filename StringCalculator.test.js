@@ -15,3 +15,7 @@ test('single number as input will return the number itself',()=>{
 test('two numbers as input will return the sum',()=>{
     expect(calculator.add('2,4')).toBe(6);
 });
+
+test('multiple numbers as input will return the sum',()=>{
+    expect(calculator.add('8,4,12,100')).toBe(124);
+})

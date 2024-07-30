@@ -6,9 +6,10 @@ class StringCalculator{
             return 0;
         else{
             let sum = 0;
-            numbers.split(',').forEach(val=>{
-                sum += parseInt(val,10);
+            numbers.split(','). filter(val=>val.trim() !== '').forEach(val=>{
+                sum += parseInt(val.trim(),10);
             });
+          
 
             return sum;
         }

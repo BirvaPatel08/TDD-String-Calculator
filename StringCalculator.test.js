@@ -46,3 +46,9 @@ test('numbers greater than 1000 will be ignored',()=>{
 test('numbers greater than 1000 will be ignored',()=>{
     expect(calculator.add('2000,2000')).toBe(0);
 });
+
+test('delimiters of any length will return correct sum',()=>{
+    expect(calculator.add('//[***]\n1***2***3')).toBe(6);
+});
+
+

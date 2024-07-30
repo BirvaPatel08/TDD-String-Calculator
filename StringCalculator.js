@@ -15,8 +15,14 @@ class StringCalculator{
             if(numbers.startsWith('//'))
             {
                 const delimiterEnd = numbers.indexOf('\n');
-                delimiter = new RegExp(numbers.substring(2,delimiterEnd));
-                numbers = numbers.substring(delimiterEnd+1);
+                let customDelimiter = numbers.substring(2,delimiterEnd);
+                if(customDelimiter.startsWith('[') && customDelimiter.endsWith(']')){
+                    customDelimiter = customDelimiter.slice(1, -1);
+                    customDelimiter = customDelimiter.replace(/\[\]/g, '');
+
+                }
+                delimiter = new RegExp(this.ignoreRegExp(customDelimiter), 'g');
+                numbers = numbers.substring(delimiterEnd + 1);
             }
             return {delimiter, normalizedNumbers: numbers};
         }
@@ -36,6 +42,11 @@ class StringCalculator{
                         throw new Error(`Negative numbers are not allowed: ${negatives.join(', ')}`);
 
                     }
+                }
+
+                ignoreRegExp(string)
+                {
+                    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                 }
 
                 sum(numbers){

@@ -31,3 +31,7 @@ test('extra spaces as part of input will return correct sum',()=>{
 test('new lines introduced will return correct sum',()=>{
     expect(calculator.add('1\n2,3')).toBe(6);
 })
+
+test('custom delimiter as ; will return correct sum',()=>{
+    expect(calculator.add('//;\n1;2')).toBe(3);
+});

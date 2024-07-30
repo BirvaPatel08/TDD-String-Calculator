@@ -10,4 +10,8 @@ test('empty strings as input will give 0',()=>{
 
 test('single number as input will return the number itself',()=>{
     expect(calculator.add('1')).toBe(1);
-})
+});
+
+test('two numbers as input will return the sum',()=>{
+    expect(calculator.add('2,4')).toBe(6);
+});

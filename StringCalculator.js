@@ -9,8 +9,10 @@ class StringCalculator{
             numbers.split(',').forEach(val=>{
                 sum += parseInt(val,10);
             });
+
+            return sum;
         }
-        return sum;
+      
     }
 
  }

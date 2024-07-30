@@ -82,6 +82,9 @@ test('multiplication of multiple numbers',()=>{
     expect(calculator.multiply('1,2,4')).toBe(8);
 });
 
+test('multiplication with custom delimiter will give correct value',()=>{
+    expect(calculator.multiply('//[*][%]\n2*3%4')).toBe(24);
+})
 test('division of two numbers will give correct output',()=>{
     expect(calculator.divide('6,3')).toBe(2);
 });

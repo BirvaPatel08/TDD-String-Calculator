@@ -84,6 +84,10 @@ test('division of two numbers will give correct output',()=>{
 
 test('division of multiple numbers will give correct output',()=>{
     expect(calculator.divide('24,6,2')).toBe(2);
+});
+
+test('division by zero will throw error',()=>{
+    expect(()=>calculator.divide('6,0')).toThrow('Division by zero exception');
 })
 
 

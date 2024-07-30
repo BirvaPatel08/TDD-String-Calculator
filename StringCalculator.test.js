@@ -95,6 +95,10 @@ test('division of multiple numbers will give correct output',()=>{
 
 test('division by zero will throw error',()=>{
     expect(()=>calculator.divide('6,0')).toThrow('Division by zero exception');
+});
+
+test('division with custom delimiter will give correct output',()=>{
+    expect(calculator.divide('//[*][%]\n24*2%2')).toBe(6);
 })
 
 

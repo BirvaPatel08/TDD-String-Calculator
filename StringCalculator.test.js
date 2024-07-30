@@ -67,10 +67,14 @@ test('subtraction resulting in negative answer throws error',()=>{
     expect(()=>calculator.subtract('3,5')).toThrow('Result cannot be negative');
 });
 
+test('subtraction of multiple numbers',()=>{
+    expect(calculator.subtract('5,3,1')).toBe(1);
+})
+
 test('multiplication of numbers will give correct value',()=>{
     expect(calculator.multiply('2,3')).toBe(6);
 })
-test('multiplucation of multiple numbers',()=>{
+test('multiplication of multiple numbers',()=>{
     expect(calculator.multiply('1,2,4')).toBe(8);
 })
 

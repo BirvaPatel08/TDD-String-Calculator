@@ -18,10 +18,13 @@ class StringCalculator{
                 let customDelimiter = numbers.substring(2,delimiterEnd);
                 if(customDelimiter.startsWith('[') && customDelimiter.endsWith(']')){
                     customDelimiter = customDelimiter.slice(1, -1);
-                    customDelimiter = customDelimiter.replace(/\[\]/g, '');
-
+                    customDelimiter = customDelimiter.split('][').map(val=>this.ignoreRegExp(val)).join('|');
                 }
-                delimiter = new RegExp(this.ignoreRegExp(customDelimiter), 'g');
+                else{
+                    customDelimiter = this.ignoreRegExp(customDelimiter);
+                }
+
+                delimiter = new RegExp(customDelimiter, 'g');
                 numbers = numbers.substring(delimiterEnd + 1);
             }
             return {delimiter, normalizedNumbers: numbers};

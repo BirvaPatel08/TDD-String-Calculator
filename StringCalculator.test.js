@@ -51,4 +51,9 @@ test('delimiters of any length will return correct sum',()=>{
     expect(calculator.add('//[***]\n1***2***3')).toBe(6);
 });
 
+test('Allowing multiple delimiters in input will return correct sum',()=>{
+    expect(calculator.add('//[*][%]\n1*2%3')).toBe(6);
+});
+
+
 

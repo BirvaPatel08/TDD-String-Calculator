@@ -71,6 +71,10 @@ test('subtraction of multiple numbers',()=>{
     expect(calculator.subtract('5,3,1')).toBe(1);
 });
 
+test('subtraction with custom delimiter will throw error if result is negative',()=>{
+    expect(()=>calculator.subtract('//;\n3;5')).toThrow('Result cannot be negative');
+});
+
 test('multiplication of numbers will give correct value',()=>{
     expect(calculator.multiply('2,3')).toBe(6);
 });

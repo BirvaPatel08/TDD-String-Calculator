@@ -18,4 +18,12 @@ test('two numbers as input will return the sum',()=>{
 
 test('multiple numbers as input will return the sum',()=>{
     expect(calculator.add('8,4,12,100')).toBe(124);
-})
+});
+
+test('extra commas as part of input will return correct sum',()=>{
+    expect(calculator.add('1,,2,4,,8,6')).toBe(21);
+});
+
+test('extra spaces as part of input will return correct sum',()=>{
+    expect(calculator.add('1, 2, 4, 2')).toBe(9);
+});

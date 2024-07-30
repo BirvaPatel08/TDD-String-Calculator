@@ -2,13 +2,33 @@ class StringCalculator{
 
     add(numbers)
     {
+        return this.calculate(numbers,(a,b)=>a+b);
+    }
+    subtract(numbers)
+    {
+        return this.calculate(numbers,(a,b)=>a-b);
+    }
+    multiply(numbers)
+    {
+        return this.calculate(numbers,(a,b)=>a*b);
+    }
+    divide(numbers)
+    {
+        return this.calculate(numbers,(a,b)=>{
+            if(b==0) 
+                throw new Error("Division by zero");
+            return a/b;
+        });
+    }
+    calculate(numbers,operation)
+    {
         if(numbers === '')
             return 0;
             
         const {delimiter, normalizedNumbers} = this.parseInput(numbers);
         const parsedNumbers = this.parseNumbers(normalizedNumbers,delimiter);
         this.checkNegative(parsedNumbers);
-        return this.sum(parsedNumbers);
+        return this.operate(parsedNumbers, operation);
 }
         parseInput(numbers){
             let delimiter = /[\n,]+/;
@@ -34,7 +54,7 @@ class StringCalculator{
                 {
                     return numbers.split(delimiter).filter(val=>val.trim() !== '')
                     .map(val=>parseInt(val.trim(),10))
-                    .filter(val=>val<=1000);
+                    .filter(val=> !isNaN(val) && val<=1000);
                 }
 
                 checkNegative(numbers)
@@ -52,9 +72,10 @@ class StringCalculator{
                     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                 }
 
-                sum(numbers){
-                    return numbers.reduce((a,b)=>a+b,0);
-                }
+               operate(numbers,operation){
+                if(numbers.length === 0) return 0;
+                return numbers.reduce((a,b)=>operation(a,b));
+               }
             
     }
 

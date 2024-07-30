@@ -59,4 +59,3 @@ test('multiple delimiters of varying length will return correct sum',()=>{
     expect(calculator.add('//[**][%%]\n1**2%%3)')).toBe(6);
 });
 
-

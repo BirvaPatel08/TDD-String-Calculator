@@ -70,4 +70,8 @@ test('subtraction resulting in negative answer throws error',()=>{
 test('multiplication of numbers will give correct value',()=>{
     expect(calculator.multiply('2,3')).toBe(6);
 })
+test('multiplucation of multiple numbers',()=>{
+    expect(calculator.multiply('1,2,4')).toBe(8);
+})
+
 

@@ -13,9 +13,21 @@ class StringCalculator{
                 numbers = numbers.substring(delimiterEnd+1);
             }
             let sum = 0;
+            let negatives = [];
             numbers.split(delimiter). filter(val=>val.trim() !== '').forEach(val=>{
-                sum += parseInt(val.trim(),10);
+                 const number = parseInt(val.trim(),10);
+
+                 if(number<0)
+                 {
+                    negatives.push(number);
+                 }
+                 sum += number;
             });
+            
+            if(negatives.length > 0)
+            {
+                throw new Error(`Negative numbers are not allowed: ${negatives.join(', ')}`);
+            }
 
             return sum;
         }

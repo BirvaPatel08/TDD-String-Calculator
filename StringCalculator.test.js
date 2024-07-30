@@ -35,3 +35,7 @@ test('new lines introduced will return correct sum',()=>{
 test('custom delimiter as ; will return correct sum',()=>{
     expect(calculator.add('//;\n1;2')).toBe(3);
 });
+
+test('negative numbers as input will throw exception',()=>{
+    expect(()=>{calculator.add('1,-2,-3');}).toThrow('Negative numbers are not allowed: -2, -3');
+});

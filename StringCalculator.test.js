@@ -78,6 +78,9 @@ test('multiplication of multiple numbers',()=>{
     expect(calculator.multiply('1,2,4')).toBe(8);
 });
 
+test('division of two numbers will give correct output',()=>{
+    expect(calculator.divide('6,3')).toBe(2);
+})
 
 
 

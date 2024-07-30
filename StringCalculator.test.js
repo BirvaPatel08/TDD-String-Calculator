@@ -27,3 +27,7 @@ test('extra commas as part of input will return correct sum',()=>{
 test('extra spaces as part of input will return correct sum',()=>{
     expect(calculator.add('1, 2, 4, 2')).toBe(9);
 });
+
+test('new lines introduced will return correct sum',()=>{
+    expect(calculator.add('1\n2,3')).toBe(6);
+})
